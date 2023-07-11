@@ -181,6 +181,8 @@ class CommandMenu<T = MenuItem> extends React.Component<Props<T>, State> {
     if (!this.props.isActive) return;
 
     const target = event.target as HTMLElement;
+    console.log(target.id);
+
     if (target.id === "block-menu-container") return;
     this.props.onClose();
   };
