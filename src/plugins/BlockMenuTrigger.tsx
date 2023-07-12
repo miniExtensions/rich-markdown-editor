@@ -47,7 +47,11 @@ export default class BlockMenuTrigger extends Extension {
     button.className = "block-menu-trigger";
     button.type = "button";
     button.onblur = (e) => {
-      if (e != null && !e.currentTarget.contains(e.relatedTarget)) {
+      console.log("onblur", e);
+      if (
+        e.currentTarget != null &&
+        !e.currentTarget.contains(e.relatedTarget)
+      ) {
         this.options.onClose();
       }
     };
