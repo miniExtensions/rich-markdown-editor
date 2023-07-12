@@ -24,12 +24,12 @@ function BlockMenuItem({
   const Icon = icon;
 
   const ref = React.useCallback(
-    node => {
+    (node) => {
       if (selected && node) {
         scrollIntoView(node, {
           scrollMode: "if-needed",
           block: "center",
-          boundary: parent => {
+          boundary: (parent) => {
             // All the parent elements of your target are checked until they
             // reach the #block-menu-container. Prevents body and other parent
             // elements from being scrolled
@@ -46,6 +46,7 @@ function BlockMenuItem({
       selected={selected}
       onClick={disabled ? undefined : onClick}
       ref={ref}
+      className="senpiterna"
     >
       <Icon
         color={
@@ -71,20 +72,20 @@ const MenuItem = styled.button<{
   height: 36px;
   cursor: pointer;
   border: none;
-  opacity: ${props => (props.disabled ? ".5" : "1")};
-  color: ${props =>
+  opacity: ${(props) => (props.disabled ? ".5" : "1")};
+  color: ${(props) =>
     props.selected
       ? props.theme.blockToolbarTextSelected
       : props.theme.blockToolbarText};
-  background: ${props =>
+  background: ${(props) =>
     props.selected ? props.theme.blockToolbarTrigger : "none"};
   padding: 0 16px;
   outline: none;
 
   &:hover,
   &:active {
-    color: ${props => props.theme.blockToolbarTextSelected};
-    background: ${props =>
+    color: ${(props) => props.theme.blockToolbarTextSelected};
+    background: ${(props) =>
       props.selected
         ? props.theme.blockToolbarTrigger
         : props.theme.blockToolbarHoverBackground};
@@ -92,7 +93,7 @@ const MenuItem = styled.button<{
 `;
 
 const Shortcut = styled.span`
-  color: ${props => props.theme.textSecondary};
+  color: ${(props) => props.theme.textSecondary};
   flex-grow: 1;
   text-align: right;
 `;
