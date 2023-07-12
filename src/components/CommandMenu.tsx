@@ -74,7 +74,6 @@ class CommandMenu<T = MenuItem> extends React.Component<Props<T>, State> {
   componentDidMount() {
     if (!SSR) {
       window.addEventListener("keydown", this.handleKeyDown);
-      window.addEventListener("click", this.handleClick);
     }
   }
 
@@ -103,7 +102,6 @@ class CommandMenu<T = MenuItem> extends React.Component<Props<T>, State> {
   componentWillUnmount() {
     if (!SSR) {
       window.removeEventListener("keydown", this.handleKeyDown);
-      window.removeEventListener("click", this.handleClick);
     }
   }
 
@@ -173,18 +171,6 @@ class CommandMenu<T = MenuItem> extends React.Component<Props<T>, State> {
     if (event.key === "Escape") {
       this.close();
     }
-  };
-  /**
-   * If the click is outside the menu, close it
-   */
-  handleClick = (event: MouseEvent): void => {
-    if (!this.props.isActive) return;
-
-    const target = event.target as HTMLElement;
-    console.log(target.id);
-
-    if (target.id === "block-menu-container") return;
-    this.props.onClose();
   };
   insertItem = (item) => {
     switch (item.name) {
