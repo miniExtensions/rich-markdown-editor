@@ -46,7 +46,11 @@ export default class BlockMenuTrigger extends Extension {
     const button = document.createElement("button");
     button.className = "block-menu-trigger";
     button.type = "button";
-    button.onblur = () => this.options.onClose();
+    button.onblur = (e) => {
+      if (e != null && !e.currentTarget.contains(e.relatedTarget)) {
+        this.options.onClose();
+      }
+    };
     ReactDOM.render(<PlusIcon color="currentColor" />, button);
 
     return [
