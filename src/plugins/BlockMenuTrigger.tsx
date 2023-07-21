@@ -46,6 +46,12 @@ export default class BlockMenuTrigger extends Extension {
     const button = document.createElement("button");
     button.className = "block-menu-trigger";
     button.type = "button";
+    button.onblur = (e) => {
+      // @ts-expect-error these aren't official
+      if (!e.relatedTarget?.className.includes("menu-item-button")) {
+        this.options.onClose();
+      }
+    };
     ReactDOM.render(<PlusIcon fill="currentColor" />, button);
 
     return [
@@ -93,9 +99,9 @@ export default class BlockMenuTrigger extends Extension {
 
             return false;
           },
-          decorations: state => {
+          decorations: (state) => {
             const parent = findParentNode(
-              node => node.type.name === "paragraph"
+              (node) => node.type.name === "paragraph"
             )(state.selection);
 
             if (!parent) {
