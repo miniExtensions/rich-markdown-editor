@@ -1,7 +1,7 @@
 {
   "name": "@jhon-idrovo/rich-markdown-editor",
   "description": "A rich text editor with Markdown shortcuts",
-  "version": "12.26.6",
+  "version": "12.26.5",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "BSD-3-Clause",
@@ -107,7 +107,6 @@
   "resolutions": {
     "markdown-it": "^12.2.0",
     "prosemirror-transform": "1.2.5",
-    "prosemirror-model": "^1.13.3",
     "yargs-parser": "^15.0.1"
   },
   "repository": {
