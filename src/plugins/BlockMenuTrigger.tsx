@@ -48,7 +48,7 @@ export default class BlockMenuTrigger extends Extension {
     button.type = "button";
     button.onblur = (e) => {
       // @ts-expect-error these aren't official
-      if (!e.relatedTarget?.className.includes("senpiterna")) {
+      if (!e.relatedTarget?.className.includes("block-menu-item")) {
         this.options.onClose();
       }
     };
